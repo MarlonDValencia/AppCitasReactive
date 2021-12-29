@@ -7,13 +7,13 @@ import com.springBajo8.springBajo8.domain.citasDTOReactiva;
 import com.springBajo8.springBajo8.repository.IcitasReactivaRepository;
 import com.springBajo8.springBajo8.service.IcitasReactivaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class citasReactivaServiceImpl implements IcitasReactivaService {
@@ -88,8 +88,14 @@ public class citasReactivaServiceImpl implements IcitasReactivaService {
     }
 
     //Consultar cita por fecha y hora
-    public Flux<citasDTOReactiva> findByFechaYHora(String fechaReservaCita, String horaReservaCita) {
-        return this.IcitasReactivaRepository.findByfechaReservaCita(fechaReservaCita);
+    public Mono<citasDTOReactiva> findByFechaYHora(String fechaReservaCita, String horaReservaCita) {
+       return (this.IcitasReactivaRepository.findByfechaReservaCita(fechaReservaCita)
+                .flatMap(citasDTOReactiva -> {
+                    if(citasDTOReactiva.getHoraReservaCita().equals(horaReservaCita)){
+                        return Mono.just(citasDTOReactiva);
+                    }return Mono.empty();
+                }).switchIfEmpty(Mono.empty())).collect(Collectors.reducing((a, b) -> a))
+               .map(Optional::get);
     }
 
     @Override
