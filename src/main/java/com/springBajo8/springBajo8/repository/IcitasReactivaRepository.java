@@ -8,5 +8,5 @@ import reactor.core.publisher.Mono;
 
 public interface IcitasReactivaRepository extends ReactiveMongoRepository<citasDTOReactiva, String> {
     Flux<citasDTOReactiva> findByIdPaciente(String idPaciente);
-    Mono<citasDTOReactiva> findByFechaYHora(String fechaReservaCita, String horaReservaCita);
+    Flux<citasDTOReactiva> findByfechaReservaCita(String fechaReservaCita);
 }

@@ -43,6 +43,16 @@ public class citasReactivaServiceImpl implements IcitasReactivaService {
                 .switchIfEmpty(Mono.empty());
     }
 
+    @Override
+    public Flux<citasDTOReactiva> findByfechaReservaCita(String fechaReservaCita) {
+        return null;
+    }
+
+    @Override
+    public Mono<citasDTOReactiva> findByhoraReservaCita(String fechaReservaCita) {
+        return null;
+    }
+
 
     public Mono<citasDTOReactiva> updateState(String id){
         return IcitasReactivaRepository.findById(id)
@@ -78,9 +88,8 @@ public class citasReactivaServiceImpl implements IcitasReactivaService {
     }
 
     //Consultar cita por fecha y hora
-    @Override
-    public Mono<citasDTOReactiva> findByFechaYHora(String fechaReservaCita, String horaReservaCita) {
-        return this.IcitasReactivaRepository.findByFechaYHora(fechaReservaCita,horaReservaCita);
+    public Flux<citasDTOReactiva> findByFechaYHora(String fechaReservaCita, String horaReservaCita) {
+        return this.IcitasReactivaRepository.findByfechaReservaCita(fechaReservaCita);
     }
 
     @Override

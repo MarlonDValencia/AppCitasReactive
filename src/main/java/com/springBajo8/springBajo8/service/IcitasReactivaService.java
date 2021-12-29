@@ -12,7 +12,9 @@ public interface IcitasReactivaService {
 
     Mono<citasDTOReactiva> update(String id, citasDTOReactiva citasDTOReactiva);
 
-    Mono<citasDTOReactiva> findByFechaYHora(String fechaReservaCita, String horaReservaCita);
+    Flux<citasDTOReactiva> findByfechaReservaCita(String fechaReservaCita);
+
+    Mono<citasDTOReactiva> findByhoraReservaCita(String fechaReservaCita);
 
     Flux<citasDTOReactiva> findByIdPaciente(String idPaciente);
 
