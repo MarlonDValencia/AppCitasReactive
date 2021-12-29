@@ -19,7 +19,7 @@ public class citasDTOReactiva {
 
     private String nombrePaciente;
 
-    private HashMap<String,String> HistoriaClinica;
+    //private HashMap<String,String> HistoriaClinica;
 
     private String apellidosPaciente;
 
@@ -105,13 +105,13 @@ public class citasDTOReactiva {
         this.estadoReservaCita = estadoReservaCita;
     }
 
-    public HashMap<String, String> getHistoriaClinica() {
-        return HistoriaClinica;
-    }
+    //public HashMap<String, String> getHistoriaClinica() {
+        //return HistoriaClinica;
+    //}
 
-    public void setHistoriaClinica(HashMap<String,String> historiaClinica) {
-        HistoriaClinica = historiaClinica;
-    }
+    //public void setHistoriaClinica(HashMap<String,String> historiaClinica) {
+        //HistoriaClinica = historiaClinica;
+    //}
 //private Date sendedDate = new Date();
 
 

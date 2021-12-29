@@ -43,6 +43,11 @@ public class citasReactivaResource {
         return this.icitasReactivaService.findByIdPaciente(idPaciente);
     }
 
+    @GetMapping("/citasReactivas/{fechaReservaCita}/{horaReservaCita}/findByFechaYHora")
+    private Mono<citasDTOReactiva> findByFechaYHora(@PathVariable("fechaReservaCita")  String fechaReservaCita,@PathVariable("horaReservaCita") String fechaHora){
+        return this.icitasReactivaService.findByFechaYHora(fechaReservaCita,fechaHora);
+    }
+
     @GetMapping(value = "/citasReactivas")
     private Flux<citasDTOReactiva> findAll() {
         return this.icitasReactivaService.findAll();

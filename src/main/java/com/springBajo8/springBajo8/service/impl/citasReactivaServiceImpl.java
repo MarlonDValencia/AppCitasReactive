@@ -71,7 +71,7 @@ public class citasReactivaServiceImpl implements IcitasReactivaService {
     }
 
     //Agregar Padecimientos y tratamientos
-    public Flux<citasDTOReactiva> agregarHistoriaClinica(String IdPaciendte,String padecimiento, String tratamiento){
+/*    public Flux<citasDTOReactiva> agregarHistoriaClinica(String IdPaciendte,String padecimiento, String tratamiento){
         return IcitasReactivaRepository.findByIdPaciente(IdPaciendte)
                 .flatMap(citasDTOReactiva1 -> {
                     HashMap<String,String> historia = citasDTOReactiva1.getHistoriaClinica();
@@ -81,7 +81,7 @@ public class citasReactivaServiceImpl implements IcitasReactivaService {
                     return save(citasDTOReactiva1);
                 }).switchIfEmpty(Mono.empty());
     }
-
+*/
     @Override
     public Flux<citasDTOReactiva> findByIdPaciente(String idPaciente) {
         return this.IcitasReactivaRepository.findByIdPaciente(idPaciente);
