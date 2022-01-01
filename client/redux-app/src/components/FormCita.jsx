@@ -40,7 +40,7 @@ const Form = () => {
           onChange={onChange}
           value={state.search}
           type="search"
-          placeholder="Ingrese el ID Del paciente"
+          placeholder="Ingrese el fecha y hora de la cita"
         />
         <button onClick={onSearch} className="btn btn-search" type="submit">
           Buscar
