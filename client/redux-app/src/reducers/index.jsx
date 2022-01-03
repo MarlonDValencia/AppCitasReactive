@@ -14,6 +14,7 @@ const rootReducer = (state = INITIAL_STATE, action) => {
       };
 
     case GET_CITA:
+      console.log("Llegó")
       return {
         ...state,
         cita: action.payload.cita,
